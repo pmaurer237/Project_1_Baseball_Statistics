@@ -1,0 +1,81 @@
+---
+title: Report
+format:
+  html:
+    embed-resources: true
+---
+
+## Introduction
+
+Aaron Judge is one of the most prominent figures in modern baseball and has been a cornerstone of the New York Yankees since his MLB debut in 2016 (with his true rookie season occurring in 2017). Standing 6'7" and weighing 282 pounds, Judge possesses a *rare blend of size, strength, and athleticism* that immediately sets him apart from his peers. His prodigious power has made him one of the league's premier home run hitters, highlighted by his historic 62-home-run season in 2022, a new American League single-season record.
+
+While Judge is best known for his ability to hit the ball harder and farther than almost anyone in Major League Baseball, his offensive skill set extends well beyond raw power. He consistently ranks among league leaders in on-base percentage, walk percentage, and *advanced metrics* such as weighted runs created plus (wRC+), demonstrating a combination of power and patience rarely seen at the professional level. His ability to both reach base and drive in runs makes him one of the most complete and valuable hitters in the game.
+
+From an analytical perspective, Judge's performance raises several *compelling questions*: 
+
+- How does his *hitting profile compare* to other MLB hitters across recent seasons? 
+- Which underlying skills, such as *plate discipline, contact quality*, or batted-ball tendencies, most strongly contribute to his exceptional production that sets him apart from his peers? 
+- To what extent does Judge fit into or break the *typical MLB hitter molds or archetypes*, identified through statistical modeling?
+
+This project examines Judge's offensive performance through a data science lens. By collecting, cleaning, and analyzing basic, advanced, and Statcast metrics for Judge and his contemporaries, the project quantifies *what makes him such an outlier* at a time when hitting has arguably become harder than ever. Through exploratory data analysis (EDA), regression, classification, clustering, and dimensionality reduction, this project investigates how Judge stands apart from the broader population of current MLB hitters, and which attributes explain his extraordinary impact at the plate, along with league-wide analyses. 
+
+Regading league-wide analysis, a logistic classifier is designed to determine the probability that a player will have an "elite" season (in terms of wRC+) in 2026 based on both *contact quality and plate discipline* metrics. $K$-means performance is also evaluated in this baseball stats domain by identifying and grouping hitters into two categories – contact and power – from 2025 season statistics alone. 
+
+---
+
+## Data Collection
+
+Directly collecting data from websites such as Baseball Reference can be difficult because these sites are not designed for easy, automated extraction. Pages often change without notice, use complex layouts, and limit repeated requests, which makes scraping unreliable and time-consuming. Instead of collecting data manually, *this project relies on existing baseball data libraries*, specifically `pybaseball`, which provides a stable and convenient way to access baseball statistics. This tool, similar to an API wrapper, interfaces directly with data sources such as Baseball Savant (for Statcast data), FanGraphs, and Baseball Reference, allowing one to work with relatively clean, analysis-ready datasets. Using `pybaseball`, seasonal batting statistics for every player with at least $200$ plate appearances since 2017 are collected, and then Aaron Judge's seasons are isolated for focused analysis. This is first done with FanGraphs data and then with Statcast data; a total of $4$ raw datasets are obtained.
+
+---
+
+## Data Cleaning 
+
+Here, various baseball batting statistics are outlined in case the reader is unfamiliar with them or with baseball in general, including basic statistics such as batting average and home runs, advanced metrics like wRC+, and Statcast measurements such as launch angle. This is the only type of data that this project utilizes, so *it is paramount that the reader has at least a basic understanding* of these metrics before proceeding to the EDA and subsequent analyses.  
+
+Following this introduction, the FanGraphs dataset is cleaned by standardizing and renaming columns (with additional adjustments made later in the workflow). Relevant columns necessary for the analysis are then selected, and data types are standardized. The *same cleaning process* is applied to the Statcast dataset, after which the two datasets are merged, columns are reordered, and Aaron Judge's seasons are isolated, resulting in a total of $2$ clean datasets. The exact order of these steps here differs slightly from that of the `Data_Cleaning.ipynb` file.
+
+---
+
+## EDA
+
+The EDA revealed *a couple of key trends*. First, as expected, it showed graphically that Aaron Judge has been far and above his peers as a hitter since he was a rookie in 2017 (see the figure below). For example, the median (and mean) seasonal hard hit percentage, which follows a normal distribution, since 2017, is around $0.4=40\%$, but Judge often has seasons where his hard hit percentage is around $0.6=60\%$, putting him within the top $10\%$. Again, this is not surprising given Judge's size and stature, but it quantitatively confirms that his contact quality is not merely above average but *extreme* relative to the league.
+
+Next, although both contact quality and plate discipline are paramount for establishing oneself as an excellent MLB hitter, *the EDA showed that contact quality was more strongly correlated mathematically with power and run value outcomes*. Measures such as hard hit percentage and barrel percentage showed clear positive relationships with slugging-based metrics and overall offensive value, indicating that harder and better-angled contact translated more reliably into extra-base hits and run creation. This distinction suggests that while plate discipline helps sustain offensive value, contact quality plays a more *immediate role* in separating great hitters, such as Aaron Judge, from the broader population of average ones.
+
+![](Figures/1.png)
+
+---
+
+## Supervised Learning 
+
+First, wOBA and slugging percentage were regressed linearly. As discussed in `Supervised_Learning.ipynb`, this was not a particularly insightful regression task because both wOBA and slugging percentage encode extra-base hits, so a relatively strong positive trend was expected, and observed, with an $R^2=0.623$. Next, barrel percentage and isolated power were regressed linearly as well. This was a more interesting regression because *barrel percentage is a measure of contact quality while isolated power is a power outcome metric*, so one should expect that as contact quality increases, more power outcomes (extra-base hits) are realized, and this is exactly what was observed, with an $R^2=0.627$.
+
+In a *future analysis*, perhaps a comparison of these two univariate linear regression tasks would be informative: 
+
+- Barrel Percentage vs. wRC+
+- Walk Percentage vs. WRC+
+
+The first is with a contact quality metric as the independent variable and the second a plate discipline metric. In `EDA.ipynb`, it is suggested that barrel percentage has a stronger positive correlation with wRC+, which supports the claim from above: "while plate discipline helps sustain offensive value, contact quality plays a more immediate role in separating great hitters." A future inquiry could also look at *multivariate linear regression* between key contact quality metrics and wRC+ side-by-side with plate discipline metrics. 
+
+Regardless, the next part of `Supervised_Learning.ipynb` involved, as stated before, a multivariate logistic, binary classifier workflow where the classifier was designed to predict the probability that a given MLB player will have an "elite" season (in terms of wRC+) in 2026 based on both *contact quality and plate discipline* metrics from 2017-2025. An elite season was defined as a player who ranked in the top $15\%$ of wRC+. Then, missing data was filled with standard imputation and all possible features were normalized to a mean of zero and unit variance. After this, features were pruned based on correlation (and domain context). That is, if two features had similar correlations, one was dropped because it contains redundant information relative to the other, correlated feature. Then, a regularizer was added whose hyperparameter was tuned via a grid search in tandem with a stratified $5$-fold cross-validation to assess the model. That all being said, the model achieved a recall of $0.802$, correctly identifying over $80\%$ of elite seasons, while maintaining a precision of $0.500$. Below is the confusion matrix.
+
+![](Figures/2.png)
+
+---
+
+## Unsupervised Learning
+
+Here, $K$-means was utilized to cluster players into contact and power hitter groups from 2025 season statistics. In other words, the following question was answered: *How many contact and power hitters are there currently in Major League Baseball, at least, based off of 2025 performance?* Like the supervised learning task, missing data was filled with standard imputation and all possible features were normalized. Feature pruning consisted of correlation-based and centroid-based approaches after the removal of counting stats because some of these states, such as plate appearances, are more of an indication of playing time rather than skill. This yielded a compact, interpretable feature set that was selected entirely through unsupervised criteria and optimized for capturing the dominant structural differences among hitters. 
+
+Then, the optimal number of clusters was chosen based on silhouette score. In this case, it was expectedly $2$, and the model was fit accordingly, revealing that there are more contact $(180)$ than power $(115)$ hitters in the league today, which makes sense given that true power and the resultant run production is hard to come by. The clustering result, as revealed through 2D and 3D PCA (shown in the figure below), was not $2$ separate, distinct clusters (with a high silhouette score), but rather *a larger cluster with the two types of hitters separated by a boundary* along one of the principal component axes. This is intuitive because hitter attributes vary continuously rather than forming sharply separated groups. Regardless, this model showed what a reasonable $K$-means result looks like in this domain. That is, one cannot expect silhouette scores close to $1$.
+
+![](Figures/3.png)
+
+---
+
+## Conclusion
+
+Overall, this project used basic data analysis and modeling to contextualize Aaron Judge's offensive profile and to study league-wide hitter structure. The EDA confirmed that Judge has been on another level than his peers since 2017, and it supported the *key takeaway that while both plate discipline and contact quality matter, contact quality is more directly linked to power and run-value outcomes*.
+
+In supervised learning, the regression results *matched this theme*: barrel percentage (a contact quality stat) explained a substantial share of isolated power, while the multivariate logistic classifier achieved a recall of $0.802$ with a precision of $0.500$, showing that elite seasons are identifiable from a combined set of contact quality and discipline features. In unsupervised learning, $K$-means on 2025 stats found more contact hitters $(180)$ than power hitters $(115)$, and PCA visualization showed not two clean clusters but a continuum with a boundary, a result that makes sense given hitter profiles are not mutually exclusive.

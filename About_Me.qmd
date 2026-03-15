@@ -1,0 +1,11 @@
+---
+title: About Me
+---
+
+Hi, I'm Palmer Maurer, a senior at Georgetown University pursuing a *Bachelor of Science* in *Mathematics*. I originally began my studies as a chemistry major on the pre-med track, but over time I discovered a deeper passion for mathematics and data science (which inclues a lot of math), and this has shaped my academic and professional focus. I'm excited to continue developing my skills in the DSAN program following graduation.
+
+I'm originally from Princeton, New Jersey, and I'm a dedicated **New York Yankees** fan, hence the theme of this project for DSAN-5000. Outside of academics, I enjoy spending time with friends and family, including my family dog, Twix. I love golfing, listening to rock (especially *The Rolling Stones* and Bruce Springsteen, for example), and playing the cello, which I've played for many years, most recenty in the GU Orchestra.
+
+Travel is another passion of mine; *Italy* holds a special place in my heart. I've been very fortunate to visit several times with my family, and exploring every region remains a goal of mine. My family heritage is mainly Italian, with some German, Irish, and English ancestry, and I enjoy connecting with my roots through travel and food!
+
+I'm looking forward to the *rest of my senior year* at Georgetown and the opportunities ahead, especially in data science, where I hope to combine my analytical skills with problem-solving and creativity.
