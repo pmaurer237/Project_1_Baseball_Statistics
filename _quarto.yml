@@ -4,7 +4,7 @@ project:
     - "*.qmd"
     - "*.ipynb"
 website:
-  title: DSAN-5000 Project
+  title: "Data Science Project #1: Baseball Statistics"
   favicon: Assets/GU_Logo.png
   navbar:
     left:
@@ -12,22 +12,18 @@ website:
         text: Home Page
       - href: About_Me.qmd
         text: About Me
-      - href: Report.qmd
-        text: Report
-      - text: Technical Details
+      - text: Workflow
         menu:
           - text: Data Collection
-            href: Technical_Details/Data_Collection.ipynb
+            href: Workflow/Data_Collection.ipynb
           - text: Data Cleaning
-            href: Technical_Details/Data_Cleaning.ipynb
+            href: Workflow/Data_Cleaning.ipynb
           - text: EDA
-            href: Technical_Details/EDA.ipynb
+            href: Workflow/EDA.ipynb
           - text: Supervised Learning
-            href: Technical_Details/Supervised_Learning.ipynb
+            href: Workflow/Supervised_Learning.ipynb
           - text: Unsupervised Learning
-            href: Technical_Details/Unsupervised_Learning.ipynb
-          - text: LLM Usage Log
-            href: Technical_Details/LLM_Usage_Log.qmd
+            href: Workflow/Unsupervised_Learning.ipynb
 bibliography: Assets/References.bib
 format:
   html:

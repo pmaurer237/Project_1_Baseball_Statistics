@@ -1,3 +1,3 @@
-# Machine Learning Project #1: Baseball Statistics
+# Data Science Project #1: Baseball Statistics
 
-This is my first machine learning "for fun" project! This now public repository was originally the semester project of DSAN-5000, Fall 2025!
+This is my first data science project for fun! This repository (now public) was originally the semester project of DSAN-5000, Fall 2025 at Georgetown University!
