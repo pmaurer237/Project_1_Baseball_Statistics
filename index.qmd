@@ -42,7 +42,7 @@ A multivariate logistic classifier is used to predict whether a player will have
 
 A $K$-means clustering algorithm on 2025 hitter stats (a specific group) identifies two broad subsets of hitters, **as expected**: *contact hitters* $(180)$ and *power hitters* $(115)$.
 
-PCA visualizations (in 2D and 3D) show not two cleanly-separated clusters, but a *continuum with a boundary*, reflecting the reality that hitter profiles vary smoothly rather than discretely. **José Altuve**, for example, is a considered to be a contact hitter, but was placed in the power hitter cluster.
+PCA visualizations (in 2D and 3D) show not two cleanly-separated clusters, but a *continuum with a boundary*, reflecting the reality that hitter profiles vary smoothly rather than discretely. **Jose Altuve**, for example, was clustered a as a contact hitter even though he consistently hits $20$ and even $30+$ home runs in a season.
 
 Regardless, power hitters are **fewer** according to this $K$-means algorithm, highlighting the scarcity of true power in today's MLB.
 
