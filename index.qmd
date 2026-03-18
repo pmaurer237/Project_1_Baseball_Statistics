@@ -4,9 +4,9 @@ title: Home Page
 
 ## Aaron Judge, Contact Quality, and Modern Hitting
 
-### Analyzing Great MLB Offense (2017-2025)
+### Analyzing Great MLB Offense
 
-Aaron Judge is one of the most dominant hitters in modern Major League Baseball, combining historic power with plate discipline. This project analyzes Judge's offensive profile in the context of the broader MLB hitting landscape, using modern sabermetrics (advanced statistics including Statcast) and basic machine learning to understand *what separates the best hitters from the rest of the league*, and where Judge finds himself. Here's a hint: He's all alone!
+Aaron Judge is one of the most dominant hitters in modern Major League Baseball, combining historic power with plate discipline. This project analyzes Judge's offensive profile in the context of the broader MLB hitting landscape, using modern sabermetrics (advanced statistics including Statcast) and basic machine learning to understand *what separates the best hitters from the rest of the league*, and where Judge finds himself. Here's a hint: he's all alone!
 
 ---
 
@@ -15,9 +15,9 @@ Aaron Judge is one of the most dominant hitters in modern Major League Baseball,
 This analysis uses *FanGraphs and Statcast stats/data* from 2017–2025, collected via `pybaseball` (an API-like Python library), to study both individual and league-wide hitting performance. The primary outcome variable is *weighted runs created plus* (wRC+), a park and league-adjusted measure of offensive value. The project focuses on two core components of hitting:
 
 - **Contact Quality**
-  - Ex. hard hit percentage, barrel percentage, launch angle, exit velocity
+  - Ex. Hard hit percentage, barrel percentage, launch angle, exit velocity
 - **Plate Discipline**
-  - Ex. walk percentage, strikeout percentage, chase percentage, zone contact percentage
+  - Ex. Walk percentage, strikeout percentage, chase percentage, zone contact percentage
 
 The central question is not whether Aaron Judge is one of the best hitters in the league. This is already known (he is). Rather, it's about *why*, in measurable terms, and how his skill set compares to other contemporary MLB hitters.
 
@@ -27,7 +27,7 @@ The central question is not whether Aaron Judge is one of the best hitters in th
 
 #### Exploratory Data Analysis (EDA)
 
-Since his rookie season in 2017, Aaron Judge has consistently ranked *far above league averages* in *contact quality*.
+Since his rookie season in 2017, Aaron Judge has consistently ranked *far above league averages* in contact quality.
 
 **Contact quality** metrics exhibit stronger correlations with power and run value outcomes than plate discipline alone.
 
@@ -42,9 +42,9 @@ A multivariate logistic classifier is used to predict whether a player will have
 
 A $K$-means clustering algorithm on 2025 hitter stats (a specific group) identifies two broad subsets of hitters, **as expected**: *contact hitters* $(180)$ and *power hitters* $(115)$.
 
-PCA visualizations (in 2D and 3D) show not two cleanly-separated clusters, but a *continuum with a boundary*, reflecting the reality that hitter profiles vary smoothly rather than discretely. José Altuve, for example, is a considered to be a contact hitter, but was placed in the power hitter cluster.
+PCA visualizations (in 2D and 3D) show not two cleanly-separated clusters, but a *continuum with a boundary*, reflecting the reality that hitter profiles vary smoothly rather than discretely. **José Altuve**, for example, is a considered to be a contact hitter, but was placed in the power hitter cluster.
 
-Regardless, power hitters are **fewer** according to the $K$-means algorithm, highlighting the scarcity of true power in today's MLB.
+Regardless, power hitters are **fewer** according to this $K$-means algorithm, highlighting the scarcity of true power in today's MLB.
 
 ---
 

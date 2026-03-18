@@ -5,7 +5,7 @@ project:
     - "*.ipynb"
 website:
   title: "Data Science Project #1: Baseball Statistics"
-  favicon: Assets/GU_Logo.png
+  favicon: Images/Baseball.png
   navbar:
     left:
       - href: /
