@@ -24,8 +24,7 @@ website:
             href: Workflow/Supervised_Learning.ipynb
           - text: Unsupervised Learning
             href: Workflow/Unsupervised_Learning.ipynb
-bibliography: Assets/References.bib
 format:
   html:
-    theme: cosmo
+    theme: cerulean
     toc: true
