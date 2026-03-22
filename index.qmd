@@ -12,7 +12,7 @@ Aaron Judge is one of the most dominant hitters in modern Major League Baseball,
 
 ### Project Overview
 
-This analysis uses *FanGraphs and Statcast stats/data* from 2017–2025, collected via `pybaseball` (an API-like Python library), to study both individual and league-wide hitting performance. The primary outcome variable is *weighted runs created plus* (wRC+), a park and league-adjusted measure of offensive value. The project focuses on two core components of hitting:
+This analysis uses *FanGraphs and Statcast data* from 2017–2024, collected via `pybaseball` (a wrapper for several baseball stats APIs), to study both individual and league-wide hitting performance. The primary outcome variable is *weighted runs created plus* (wRC+), a park and league-adjusted measure of offensive value. The project focuses on two core components of hitting:
 
 - **Contact Quality**
   - Ex. Hard hit percentage, barrel percentage, launch angle, exit velocity
@@ -29,18 +29,18 @@ The central question is not whether Aaron Judge is one of the best hitters in th
 
 Since his rookie season in 2017, Aaron Judge has consistently ranked *far above league averages* in contact quality.
 
-**Contact quality** metrics exhibit stronger correlations with power and run value outcomes than plate discipline alone.
+**Contact quality** stats exhibit stronger correlations with power and run value outcomes than plate discipline alone.
 
 #### Supervised Learning
 
-Linear regression confirms a strong relationship between *barrel percentage and isolated power*, supporting the basic idea that better contact leads directly to better outcomes.
+Linear regression confirms a strong relationship between *barrel percentage and isolated power*, supporting the rudimentary concept that better contact leads directly to better outcomes.
 
-A multivariate logistic classifier is used to predict whether a player will have an "elite" season (in the top $15\%$ of wRC+ for all MLB hitters) in 2026 using *both contact quality and plate discipline* metrics from 2017-2025.
+A multivariate logistic classifier is used to predict whether a player will have an "elite" season (in the top $15\%$ of wRC+ for all MLB hitters) in the following season using *both contact quality and plate discipline* stats from 2017-2024.
   - The model achieves $0.802$ **recall** and $0.500$ **precision**, indicating that elite seasons are often identifiable from underlying skills rather than noise.
 
 #### Unsupervised Learning
 
-A $K$-means clustering algorithm on 2025 hitter stats (a specific group) identifies two broad subsets of hitters, **as expected**: *contact hitters* $(180)$ and *power hitters* $(115)$.
+A $K$-means clustering algorithm on 2024 hitter stats (a specific group) identifies two broad subsets of hitters, **as expected**: *contact hitters* $(180)$ and *power hitters* $(115)$.
 
 PCA visualizations (in 2D and 3D) show not two cleanly-separated clusters, but a *continuum with a boundary*, reflecting the reality that hitter profiles vary smoothly rather than discretely. **Jose Altuve**, for example, was clustered a as a contact hitter even though he consistently hits $20$ and even $30+$ home runs in a season.
 
