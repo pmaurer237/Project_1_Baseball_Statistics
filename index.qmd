@@ -1,3 +1,7 @@
+---
+title: Overview
+---
+
 This project provides a structured examination of the data science lifecycle, focusing on the core stages of data collection, cleaning, exploratory data analysis (EDA), and modeling through both supervised and unsupervised methods. The emphasis is placed less on final predictive performance or conclusions and more on the underlying processes, assumptions, and methodological decisions that shape each stage.
 
 Data collection is conducted using the Python library `pybaseball`, which serves as a wrapper for multiple baseball data sources, including FanGraphs and Statcast. This approach highlights how modern data science workflows often rely on APIs and abstraction layers to efficiently gather large, heterogeneous datasets from multiple providers.
