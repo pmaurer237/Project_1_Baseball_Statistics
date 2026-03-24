@@ -1,0 +1,13 @@
+---
+title: Introduction
+---
+
+Hi! I'm Palmer Maurer, a senior at Georgetown University pursuing a Bachelor of Science in Mathematics. I originally began my studies as a chemistry major on the pre-med track, but over time I discovered a deeper passion for mathematics and data science/ML, and this has shaped my academic and professional focus. 
+
+I'm from Princeton, New Jersey and I'm a dedicated New York Yankees fan, hence the theme of this project. Outside of academics, I enjoy spending time with family and friends, especially my family dog, Twix (pictured below). I love golfing, listening to rock (e.g., *The Eagles* and Bruce Springsteen), and playing the cello, which I've played for many years, most recently as a member of the Georgetown University Orchestra.
+
+Travel is another passion of mine, and Italy holds a special place in my heart. I've been very fortunate to visit several times with my family, and exploring every region remains a bucket list item of mine. 
+
+I'm looking forward to the rest of my senior year at Georgetown and the opportunities ahead, where I hope to combine my analytical skills with problem-solving and creativity.
+
+![](Images/Twix.png)

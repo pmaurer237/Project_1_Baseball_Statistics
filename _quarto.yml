@@ -10,20 +10,20 @@ website:
     left:
       - href: /
         text: Overview
-      - href: About_Me.qmd
+      - href: About.qmd
         text: About
-      - text: Workflow
+      - text: Lifecycle
         menu:
           - text: Data Collection
-            href: Workflow/Data_Collection.ipynb
+            href: Lifecycle/Data_Collection.ipynb
           - text: Data Cleaning
-            href: Workflow/Data_Cleaning.ipynb
+            href: Lifecycle/Data_Cleaning.ipynb
           - text: EDA
-            href: Workflow/EDA.ipynb
+            href: Lifecycle/EDA.ipynb
           - text: Supervised Learning
-            href: Workflow/Supervised_Learning.ipynb
+            href: Lifecycle/Supervised_Learning.ipynb
           - text: Unsupervised Learning
-            href: Workflow/Unsupervised_Learning.ipynb
+            href: Lifecycle/Unsupervised_Learning.ipynb
 format:
   html:
     theme: cerulean
