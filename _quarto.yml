@@ -4,7 +4,7 @@ project:
     - "*.qmd"
     - "*.ipynb"
 website:
-  title: "Data Science Project #1: Baseball Statistics"
+  title: "Data Science Project: Baseball Statistics"
   favicon: Images/Baseball.png
   navbar:
     left:
