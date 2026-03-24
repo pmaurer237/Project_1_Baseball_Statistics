@@ -9,9 +9,9 @@ website:
   navbar:
     left:
       - href: /
-        text: Home Page
+        text: Overview
       - href: About_Me.qmd
-        text: About Me
+        text: About
       - text: Workflow
         menu:
           - text: Data Collection
