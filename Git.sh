@@ -1,10 +1,10 @@
-# Pull the latest changes!
+# Pull the latest changes
 git pull origin main
 
-# Stage all changes!
+# Stage all changes
 git add .
 
-# Commit the changes!
+# Commit the changes
 if [ -z "$1" ]; then
   echo "Enter commit message: "
   read commit_msg
@@ -13,5 +13,5 @@ else
 fi
 git commit -m "$commit_msg"
 
-# Push the changes!
+# Push the changes
 git push origin main
