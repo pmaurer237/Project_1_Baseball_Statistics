@@ -5,7 +5,7 @@ git pull origin main
 git add .
 
 # Commit the changes
-if [ -z "$1" ]; then
+if [[ -z "$1" ]]; then
   echo "Enter commit message: "
   read commit_msg
 else

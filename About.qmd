@@ -4,7 +4,7 @@ title: Some random stuff about me...
 
 Hi! I'm Palmer Maurer, a recent graduate of Georgetown University with a Bachelor of Science in Mathematics. I began my academic journey as a chemistry major on the pre-med track, but over time I developed a stronger passion for mathematics, data science, and machine learning. That shift ultimately shaped both my academic interests and my professional goals.
 
-I'm from Princeton, NJ, and I'm a dedicated New York Yankees fan, hence the theme of this project. I enjoy spending time with family and friends and especially adored my family dog, Twix (pictured below), who passed recently. I also love golfing, listening to rock music (e.g., *The Eagles* and Bruce Springsteen), and playing the cello, which I've played for many years, most recently as a member of the Georgetown University Orchestra.
+I'm from Princeton, NJ, and I'm a very dedicated New York Yankees fan, hence the theme of this project. I enjoy spending time with family and friends, and especially adored my family dog, Twix (pictured below). I also love golfing, listening to rock music (e.g., *The Eagles* and Bruce Springsteen), and playing the cello, which I've played for many years, most recently as the principal cellist of the Georgetown University Orchestra.
 
 Travel is another passion of mine, and Italy holds a special place in my heart. I've been very fortunate to visit several times with my family, and exploring every region remains a bucket list item of mine. 
 
