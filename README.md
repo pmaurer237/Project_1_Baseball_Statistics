@@ -4,4 +4,4 @@ This is just a data science/analytics project for fun! This repository (now publ
 
 ---
 
-You can view the correlation matrix heatmap for the EDA at [this link](https://pmaurer237.github.io/Project_1_Baseball_Statistics/).
+You can view the correlation matrix heatmap from the EDA at [this link](https://pmaurer237.github.io/Project_1_Baseball_Statistics/).
